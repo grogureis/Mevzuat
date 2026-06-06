@@ -1,6 +1,11 @@
 {
-  "acil-saglik-hizmetleri-yonetmeligi": "00c5d3b993cbb7ef",
-  "yatakli-acil-servis-tebligi": "5ead920f262a515a",
-  "yatakli-tedavi-kurumlari-isletme-yonetmeligi": "f926779418afe08b",
-  "saglikta-kalite-hasta-calisan-guvenligi-yonetmeligi": "8e14e1cb748bb8f3"
+  "_aciklama": "Manuel mevzuat kontrolü için son bilinen değişiklik tarihleri. Kullanıcı 'mevzuat kontrol' dediğinde, asistan Yargı (mevzuat) aracıyla her belgenin güncel halini çeker, aşağıdaki son değişiklik tarihiyle karşılaştırır; yeni bir Resmî Gazete değişikliği varsa içeriği günceller ve bu kaydı yeniler.",
+  "_kontrol_tarihi": "2026-06-06",
+  "belgeler": {
+    "acil-saglik-hizmetleri-yonetmeligi": "RG 29/4/2014-28986",
+    "yatakli-acil-servis-tebligi": "RG 11/10/2024-32689",
+    "yatakli-tedavi-kurumlari-isletme-yonetmeligi": "RG 17/3/2006-2006/10224",
+    "saglikta-kalite-hasta-calisan-guvenligi-yonetmeligi": "RG 26/5/2023-32202",
+    "istanbul-2025-askom-kararlari": "05.05.2025 (2025 ASKOM Kararları)"
+  }
 }
