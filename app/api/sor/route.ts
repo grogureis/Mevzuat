@@ -1,8 +1,8 @@
 import { streamText, convertToModelMessages, type UIMessage } from "ai";
 import { mevzuatBaglami, gecerliSluglar } from "@/lib/mevzuat";
 
-// Streaming yanıtlar için süre (saniye)
-export const maxDuration = 30;
+// Streaming yanıtlar için süre (saniye) — soğuk başlangıç + uzun cevaba pay
+export const maxDuration = 60;
 
 const MODEL = process.env.MEVZUAT_MODEL ?? "google/gemini-2.5-flash";
 

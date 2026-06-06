@@ -28,11 +28,15 @@ export default function Sayfa() {
   const [sheetAcik, setSheetAcik] = useState(false);
   const altRef = useRef<HTMLDivElement>(null);
 
-  const { messages, sendMessage, status, error, setMessages } = useChat({
-    transport: new DefaultChatTransport({ api: "/api/sor" }),
-  });
+  const { messages, sendMessage, status, error, setMessages, regenerate } =
+    useChat({
+      transport: new DefaultChatTransport({ api: "/api/sor" }),
+    });
 
   const calisiyor = status === "submitted" || status === "streaming";
+  const sonMesaj = messages[messages.length - 1];
+  // Cevap hiç gelmedi (bağlantı koptu): son mesaj kullanıcıdan ve iş bitti
+  const cevapGelmedi = !calisiyor && sonMesaj?.role === "user";
 
   useEffect(() => {
     altRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -94,9 +98,19 @@ export default function Sayfa() {
             </div>
           )}
 
-          {error && (
-            <div className="mt-4 rounded-xl border border-acil/30 bg-red-50 px-4 py-3 text-sm text-acil-koyu">
-              Cevap üretilemedi, lütfen tekrar deneyin.
+          {(error || cevapGelmedi) && (
+            <div className="mt-4 flex items-center justify-between gap-3 rounded-xl border border-acil/30 bg-red-50 px-4 py-3 text-sm text-acil-koyu">
+              <span>
+                {error
+                  ? "Cevap üretilemedi."
+                  : "Cevap gelmedi (bağlantı kesilmiş olabilir)."}
+              </span>
+              <button
+                onClick={() => regenerate()}
+                className="shrink-0 rounded-lg bg-acil px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-acil-koyu"
+              >
+                Tekrar dene
+              </button>
             </div>
           )}
           <div ref={altRef} />
