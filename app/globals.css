@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --font-baslik: var(--font-baslik);
+  --font-govde: var(--font-govde);
+
+  --color-acil: #e30a17; /* Türk bayrağı / ACİL kırmızısı */
+  --color-acil-koyu: #b00712;
+  --color-turkuaz: #0d9488; /* Sağlık turkuazı */
+  --color-murekkep: #0f1722;
+}
+
+:root {
+  --zemin: #eef1f4;
+  --kart: #ffffff;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-govde), system-ui, sans-serif;
+  color: var(--color-murekkep);
+  /* Masaüstünde sakin klinik zemin; telefon çerçevesi ortada durur */
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #ffffff 0%, transparent 60%),
+    repeating-linear-gradient(
+      45deg,
+      #e7ebef 0px,
+      #e7ebef 1px,
+      transparent 1px,
+      transparent 11px
+    ),
+    var(--zemin);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* EKG / nabız çizgisi — başlık altı dekoratif bant */
+.ekg-band {
+  height: 26px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='26' viewBox='0 0 240 26'><path d='M0 13 H70 l6 -9 l7 18 l6 -9 l5 0 l4 -5 l5 5 H240' fill='none' stroke='%23e30a17' stroke-width='1.6' stroke-opacity='0.5' stroke-linejoin='round' stroke-linecap='round'/></svg>");
+  background-repeat: repeat-x;
+  background-position: center;
+  opacity: 0.7;
+}
+
+/* İnce, klinik kaydırma çubuğu */
+.kaydirma::-webkit-scrollbar {
+  width: 7px;
+}
+.kaydirma::-webkit-scrollbar-thumb {
+  background: #cfd6dd;
+  border-radius: 999px;
+}
+.kaydirma::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes nabiz {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.12); opacity: 0.85; }
+}
+.nabiz {
+  animation: nabiz 1.6s ease-in-out infinite;
+}
+
+@keyframes belir {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.belir {
+  animation: belir 0.35s ease-out both;
+}
