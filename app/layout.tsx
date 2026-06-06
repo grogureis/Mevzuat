@@ -18,6 +18,12 @@ export const metadata: Metadata = {
   title: "Mevzuat — Acil Servis Rehberi",
   description:
     "Yataklı acil servis çalışma kurallarını mevzuata dayalı, kaynak göstererek yanıtlayan rehber uygulama.",
+  // iPhone "Ana Ekrana Ekle" ile tam ekran, native benzeri açılış
+  appleWebApp: {
+    capable: true,
+    title: "Mevzuat",
+    statusBarStyle: "default",
+  },
 };
 
 export const viewport: Viewport = {
